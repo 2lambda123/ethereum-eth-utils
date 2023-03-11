@@ -18,7 +18,7 @@ importing them through the ``curried`` module like so:
 ABI Utils
 ~~~~~~~~~
 
-``event_abi_to_log_topic(event_abi)`` -> bytes
+``event_abi_to_log_topic(event_abi)`` -> Hash32
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Returns the 32 byte log topic for the given event abi.
@@ -29,7 +29,7 @@ Returns the 32 byte log topic for the given event abi.
    >>> event_abi_to_log_topic({'type': 'event', 'anonymous': False, 'name': 'MyEvent', 'inputs': []})
    b'M\xbf\xb6\x8bC\xdd\xdf\xa1+Q\xeb\xe9\x9a\xb8\xfd\xedb\x0f\x9a\n\xc21B\x87\x9aO\x19*\x1byR\xd2'
 
-``event_signature_to_log_topic(event_signature)`` -> bytes
+``event_signature_to_log_topic(event_signature)`` -> Hash32
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Returns the 32 byte log topic for the given event signature.
@@ -710,7 +710,7 @@ being supplied when passing in a ``str``.
 
 Only supply one of the arguments:
 
-``keccak(<bytes/int/bool>, text=<str>, hexstr=<str>)`` -> bytes
+``keccak(<bytes/int/bool>, text=<str>, hexstr=<str>)`` -> Hash32
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. doctest::

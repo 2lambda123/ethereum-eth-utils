@@ -1,5 +1,7 @@
 from typing import Any, Dict
 
+from eth_typing import Hash32
+
 from .crypto import keccak
 
 
@@ -56,10 +58,10 @@ def function_abi_to_4byte_selector(function_abi: Dict[str, Any]) -> bytes:
     return function_signature_to_4byte_selector(function_signature)
 
 
-def event_signature_to_log_topic(event_signature: str) -> bytes:
+def event_signature_to_log_topic(event_signature: str) -> Hash32:
     return keccak(text=event_signature.replace(" ", ""))
 
 
-def event_abi_to_log_topic(event_abi: Dict[str, Any]) -> bytes:
+def event_abi_to_log_topic(event_abi: Dict[str, Any]) -> Hash32:
     event_signature = _abi_to_signature(event_abi)
     return event_signature_to_log_topic(event_signature)
