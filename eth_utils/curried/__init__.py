@@ -158,8 +158,7 @@ def apply_one_of_formatters(
     formatter_condition_pairs: Sequence[
         Tuple[Callable[..., bool], Callable[..., TReturn]]
     ]
-) -> Callable[[TValue], TReturn]:
-    ...
+) -> Callable[[TValue], TReturn]: ...
 
 
 @overload
@@ -168,8 +167,7 @@ def apply_one_of_formatters(
         Tuple[Callable[..., bool], Callable[..., TReturn]]
     ],
     value: TValue,
-) -> TReturn:
-    ...
+) -> TReturn: ...
 
 
 # This is just a stub to appease mypy, it gets overwritten later
@@ -178,72 +176,62 @@ def apply_one_of_formatters(  # type: ignore
         Tuple[Callable[..., bool], Callable[..., TReturn]]
     ],
     value: Optional[TValue] = None,
-) -> TReturn:
-    ...
+) -> TReturn: ...
 
 
 @overload
 def hexstr_if_str(
     to_type: Callable[..., TReturn]
-) -> Callable[[Union[bytes, int, str]], TReturn]:
-    ...
+) -> Callable[[Union[bytes, int, str]], TReturn]: ...
 
 
 @overload
 def hexstr_if_str(
     to_type: Callable[..., TReturn], to_format: Union[bytes, int, str]
-) -> TReturn:
-    ...
+) -> TReturn: ...
 
 
 # This is just a stub to appease mypy, it gets overwritten later
 def hexstr_if_str(  # type: ignore
     to_type: Callable[..., TReturn], to_format: Optional[Union[bytes, int, str]] = None
-) -> TReturn:
-    ...
+) -> TReturn: ...
 
 
 @overload
 def text_if_str(
     to_type: Callable[..., TReturn]
-) -> Callable[[Union[bytes, int, str]], TReturn]:
-    ...
+) -> Callable[[Union[bytes, int, str]], TReturn]: ...
 
 
 @overload
 def text_if_str(
     to_type: Callable[..., TReturn], text_or_primitive: Union[bytes, int, str]
-) -> TReturn:
-    ...
+) -> TReturn: ...
 
 
 # This is just a stub to appease mypy, it gets overwritten later
 def text_if_str(  # type: ignore
     to_type: Callable[..., TReturn],
     text_or_primitive: Optional[Union[bytes, int, str]] = None,
-) -> TReturn:
-    ...
+) -> TReturn: ...
 
 
 @overload
 def apply_formatters_to_dict(
     formatters: Dict[Any, Any]
-) -> Callable[[Dict[Any, Any]], TReturn]:
-    ...
+) -> Callable[[Dict[Any, Any]], TReturn]: ...
 
 
 @overload
 def apply_formatters_to_dict(
     formatters: Dict[Any, Any], value: Dict[Any, Any]
-) -> Dict[Any, Any]:
-    ...
+) -> Dict[Any, Any]: ...
 
 
 # This is just a stub to appease mypy, it gets overwritten later
 def apply_formatters_to_dict(  # type: ignore
     formatters: Dict[Any, Any], value: Optional[Dict[Any, Any]] = None
-) -> Dict[Any, Any]:
-    ...
+) -> Dict[Any, Any]: ...
 
 
 apply_formatter_at_index = curry(apply_formatter_at_index)
