@@ -120,7 +120,7 @@ TValue = TypeVar("TValue")
 
 @overload
 def apply_formatter_if(
-    condition: Callable[..., bool]
+    condition: Callable[..., bool],
 ) -> Callable[[Callable[..., TReturn]], Callable[[TValue], Union[TReturn, TValue]]]:
     pass
 
@@ -157,7 +157,7 @@ def apply_formatter_if(  # type: ignore
 def apply_one_of_formatters(
     formatter_condition_pairs: Sequence[
         Tuple[Callable[..., bool], Callable[..., TReturn]]
-    ]
+    ],
 ) -> Callable[[TValue], TReturn]: ...
 
 
@@ -181,7 +181,7 @@ def apply_one_of_formatters(  # type: ignore
 
 @overload
 def hexstr_if_str(
-    to_type: Callable[..., TReturn]
+    to_type: Callable[..., TReturn],
 ) -> Callable[[Union[bytes, int, str]], TReturn]: ...
 
 
@@ -199,7 +199,7 @@ def hexstr_if_str(  # type: ignore
 
 @overload
 def text_if_str(
-    to_type: Callable[..., TReturn]
+    to_type: Callable[..., TReturn],
 ) -> Callable[[Union[bytes, int, str]], TReturn]: ...
 
 
@@ -218,7 +218,7 @@ def text_if_str(  # type: ignore
 
 @overload
 def apply_formatters_to_dict(
-    formatters: Dict[Any, Any]
+    formatters: Dict[Any, Any],
 ) -> Callable[[Dict[Any, Any]], TReturn]: ...
 
 
